@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_rev_params.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luproven <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/27 11:26:34 by luproven          #+#    #+#             */
-/*   Updated: 2022/09/27 15:26:02 by luproven         ###   ########.fr       */
+/*   Created: 2022/09/27 17:17:04 by luproven          #+#    #+#             */
+/*   Updated: 2022/09/27 17:26:24 by luproven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,25 @@
 
 void	ft_putchar(char c)
 {
-	write(1, &c, 1);
+	write (1, &c, 1);
 }
 
 int	main(int argc, char *argv[])
 {
 	int	i;
+	int	a;
 
-	(void)argc;
-	i = 0;
-	while (argv[0][i] != '\0')
+	a = argc - 1;
+	while (a > 0)
 	{
-		ft_putchar(argv[0][i]);
-		i++;
+		i = 0;
+		while (argv[a][i] != '\0' && argc)
+		{
+			ft_putchar(argv[a][i]);
+			i++;
+		}
+		ft_putchar('\n');
+		a--;
 	}
-	ft_putchar('\n');
 	return (0);
 }
